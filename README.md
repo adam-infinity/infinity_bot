@@ -1,7 +1,7 @@
 # README #
 
 This *infinity_python_demo* code comes with no guarantees but is provided as-is only, in order to assist other users 
-quickly get up to speed with our Infinity APIs.
+quickly get up to speed with our Infinity APIs. (For more details please see our licence file: https://github.com/adam-infinity/infinity_bot/blob/main/LICENSE)
 
 ### Installation ###
 

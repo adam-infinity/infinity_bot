@@ -1,13 +1,13 @@
 # **config.yml
 config**
 
-# # Environments
+# Environments
 **.env
 
-# # Logging
+# Logging
 **.log
 
-# # Pycharm
+# Pycharm
 .idea/
 
 # Byte-compiled / optimized / DLL files

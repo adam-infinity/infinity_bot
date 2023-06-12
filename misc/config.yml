@@ -1,0 +1,37 @@
+infinity_url: https://uat-aw84ty7g7a84w.infinity.exchange  # dev or uat
+env_path_filename: misc/.env
+log_path: logs/
+output_logs_to_file: False
+wallet_address: 'YOUR_PUBLIC_WALLET_ADDRESS_GOES_HERE_INSIDE_SINGLE_QUOTE_MARKS'  # ADD YOUR WALLET ADDRESS HERE
+chainId: 7a69  # For AWS Test use 7a69  # For Goerli Testnet use 5
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+logging_level: INFO  # DEBUG or INFO or WARN
+logging_level_urllib3: INFO  # DO NOT CHANGE. KEEP AT INFO.
+verify: True
+send_orders: True  # True or False
+cancel_orders: True  # True or False
+inf_api_bot_refresh_minutes: 0.1  # Number of minutes between refreshing the api bot's market data
+
+bot_main:  # BOT NAME. N.B. Bot names must begin with 'bot_'
+  enable: 1  # 0 (disable) or 1 (enable)
+  maxBorrowUSDForAccount: 900000
+  maxLendUSDForAccount: 1000000
+  tokens:
+    all:  # Add a test to check validity of inputs later! e.g. orderType and rate order ref
+      botSpeed: 0.2  # Bot frequency, i.e. cycles per second
+      maxBorrowUSDForToken: 90000
+      maxLendUSDForToken: 100000
+      maxLimitOrdersPerSide: 20
+      orderBookMinUSD: 25000
+      orderBookMaxUSD: 50000
+      orderType: limit
+      rateOffsetRef: mid  # mid or bba (best bid or ask)
+      tenors: [FLOAT, 1D, 2D, 1W, 2W, 3W, 1M, 2M, 3M, 1Q, 2Q, 3Q, 4Q]
+      startDelayMinute: 0.15
+      orderSizeUSD: 1000
+      rateOffsetBPS: 2000
+    DAI:
+    ETH:
+    USDC:
+    USDT:
+    WBTC:

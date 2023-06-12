@@ -1,16 +1,14 @@
-# IMPORTANT - UNCOMMENT THE FOLLOWING LINES BELOW TO ENABLE THIS .GITIGNORE FILE
-
 # **config.yml
-# config**
+config**
 
 # # Environments
-# **.env
+**.env
 
 # # Logging
-# **.log
+**.log
 
 # # Pycharm
-# .idea/
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__

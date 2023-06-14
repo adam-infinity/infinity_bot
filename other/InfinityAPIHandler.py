@@ -194,7 +194,7 @@ def list_wallet_details(wallet_id, domain, cookies, verify=False):
         os._exit(1)
 
 
-def login(bot_name, address, chain_id, user_agent, domain, cfg, verify=False):
+def login(address, chain_id, user_agent, domain, verify=False):
     # Login request
     body = {'addr': address, 'chainId': chain_id}
     logging.debug(body)

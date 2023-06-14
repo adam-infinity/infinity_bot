@@ -38,7 +38,7 @@ class InfinityApiBot:
         self.cancel_orders = cancel_orders
 
         self.cookies =\
-            Inf.login(self.bot_name, self.address, self.chain_id, self.user_agent, self.domain, self.cfg, self.verify)
+            Inf.login(self.address, self.chain_id, self.user_agent, self.domain, self.verify)
         self.wallets = Inf.list_wallets(self.domain, self.cookies, self.verify)
         self.wallet_details = Inf.list_wallet_details(self.get_wallet_id(), self.domain, self.cookies, self.verify)
         self.floating_markets, self.floating_tokens_and_prices =\

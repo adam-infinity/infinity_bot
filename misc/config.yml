@@ -17,7 +17,7 @@ bot_main:  # BOT NAME. N.B. Bot names must begin with 'bot_'
   maxBorrowUSDForAccount: 900000
   maxLendUSDForAccount: 1000000
   tokens:
-    all:  # Add a test to check validity of inputs later! e.g. orderType and rate order ref
+    all:
       botSpeed: 0.2  # Bot frequency, i.e. cycles per second
       maxBorrowUSDForToken: 90000
       maxLendUSDForToken: 100000

@@ -24,7 +24,7 @@ bot_main:  # BOT NAME. N.B. Bot names must begin with 'bot_'
       maxLimitOrdersPerSide: 20
       orderBookMinUSD: 25000
       orderBookMaxUSD: 50000
-      orderType: limit
+      orderType: limit  # limit or market
       rateOffsetRef: mid  # mid or bba (best bid or ask)
       tenors: [FLOAT, 1D, 2D, 1W, 2W, 3W, 1M, 2M, 3M, 1Q, 2Q, 3Q, 4Q]
       startDelayMinute: 0.15

@@ -8,8 +8,8 @@ user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 logging_level: INFO  # DEBUG or INFO or WARN
 logging_level_urllib3: INFO  # DO NOT CHANGE. KEEP AT INFO.
 verify: True
-send_orders: True  # True or False
-cancel_orders: True  # True or False
+send_orders: False  # True or False
+cancel_orders: False  # True or False
 inf_api_bot_refresh_minutes: 0.1  # Number of minutes between refreshing the api bot's market data
 
 bot_main:  # BOT NAME. N.B. Bot names must begin with 'bot_'

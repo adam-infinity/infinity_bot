@@ -350,13 +350,13 @@ class InfinityApiBot:
 
     def update_active_orders(self):
         self.active_floating_orders, self.active_fixed_orders =\
-            Inf.fetch_all_floating_and_fixed_active_orders_by_wallet(
+            Inf.get_all_floating_and_fixed_active_orders_by_wallet(
                 self.get_wallet_id(), 999999, self.domain, self.cookies, self.verify)
 
     def update_bid_ask_last_rates(self):
         min_bid_n_ask_size = 0
         for token_id in self.floating_markets:
-            response = Inf.fetch_bid_ask_last_rates(token_id, self.domain, min_bid_n_ask_size, self.verify)
+            response = Inf.get_bid_ask_last_rates(token_id, self.domain, min_bid_n_ask_size, self.verify)
             try:
                 self.bid_ask_last_rates[token_id] = response.json()['data']
             except Exception as e:

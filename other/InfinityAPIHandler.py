@@ -303,7 +303,7 @@ def send_order(wallet_id, market_id, is_floating_market, order_type, side, qty, 
                         logging.info(response.json()['errorMsgKey'])
                     case _:
                         logging.info(response.json()['errorMsgKey'])
-            pass
+            return response.json()['data']['order']['orderId']
         case 504:
             logging.info(response)
         case _:

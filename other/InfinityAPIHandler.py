@@ -37,7 +37,7 @@ def cancel_floating_order(order_id, domain, cookies, verify=False):
         logging.warning(f'Exception {e} - Cannot place order cancellation for floating orderId {str(order_id)}')
 
 
-def fetch_all_floating_and_fixed_active_orders_by_wallet(wallet_id, max_num_orders, domain, cookies, verify=False):
+def get_all_floating_and_fixed_active_orders_by_wallet(wallet_id, max_num_orders, domain, cookies, verify=False):
     # FLOATING
     logging.info('Getting all floating rate orders... please wait')
     active_floating_orders = []
@@ -95,7 +95,7 @@ def fetch_all_floating_and_fixed_active_orders_by_wallet(wallet_id, max_num_orde
     return active_floating_orders, active_fixed_orders
 
 
-def fetch_bid_ask_last_rates(token_id, domain, min_bid_n_ask_size=0, verify=False):
+def get_bid_ask_last_rates(token_id, domain, min_bid_n_ask_size=0, verify=False):
     res_str = '/api/p/rate/markets/bestBidNAsk?tokenId=' + str(token_id) + \
               '&min_bid_n_ask_size=' + str(min_bid_n_ask_size)
     response = requests.get(domain + res_str, verify=verify)

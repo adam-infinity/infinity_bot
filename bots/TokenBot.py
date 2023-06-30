@@ -132,7 +132,7 @@ class TokenBot:
                 raise Exception('Unrecognized value for rateOffsetRef')
         if str(self.orderType).strip().upper() == 'MARKET':
             new_buy_order_type = Ot.MARKET_NUM
-            new_buy_order_rate_level = ref
+            new_buy_order_rate_level = None
         else:  # LIMIT
             new_buy_order_type = Ot.LIMIT_NUM
             new_buy_order_rate_level = ref - ref * self.rateOffsetBPS / 10000
@@ -156,7 +156,7 @@ class TokenBot:
 
         if self.orderType.strip().upper() == 'MARKET':
             new_sell_order_type = Ot.MARKET_NUM
-            new_sell_order_rate_level = ref
+            new_sell_order_rate_level = None
         else:
             new_sell_order_type = Ot.LIMIT_NUM
             new_sell_order_rate_level = ref + ref * self.rateOffsetBPS / 10000
@@ -238,7 +238,7 @@ class TokenBot:
 
         if self.orderType.strip().upper() == 'MARKET':
             new_buy_order_type = Ot.MARKET_NUM
-            new_buy_order_rate_level = ref  # Shouldn't matter what this value is
+            new_buy_order_rate_level = None
         else:
             new_buy_order_type = Ot.LIMIT_NUM
             new_buy_order_rate_level = ref - ref * self.rateOffsetBPS / 10000
@@ -262,7 +262,7 @@ class TokenBot:
 
         if self.orderType.strip().upper() == 'MARKET':
             new_sell_order_type = Ot.MARKET_NUM
-            new_sell_order_rate_level = ref
+            new_sell_order_rate_level = None
         else:
             new_sell_order_type = Ot.LIMIT_NUM
             new_sell_order_rate_level = ref + ref * self.rateOffsetBPS / 10000

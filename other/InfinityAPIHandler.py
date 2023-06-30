@@ -246,15 +246,25 @@ def login(address, chain_id, user_agent, domain, verify=False):
 def send_order(wallet_id, market_id, is_floating_market, order_type, side, qty, price, qty_step, price_step, user_agent,
                domain, cookies, verify=False, log_prefix=''):
     if is_floating_market:  # FLOATING
-        body = {'marketId': market_id,
-                'walletId': wallet_id,
-                'side': side,
-                'orderType': order_type,
-                'quantity': str(Mhf.roundup_value(qty, qty_step)),
-                'price': str(Mhf.round_value(price, price_step)),
-                'deduplication': f'{wallet_id}{market_id}{time.time()}',
-                'passive': 0
-                }
+        if price is None:
+            body = {'marketId': market_id,
+                    'walletId': wallet_id,
+                    'side': side,
+                    'orderType': order_type,
+                    'quantity': str(Mhf.roundup_value(qty, qty_step)),
+                    'deduplication': deduplication,
+                    'passive': 0
+                    }
+        else:
+            body = {'marketId': market_id,
+                    'walletId': wallet_id,
+                    'side': side,
+                    'orderType': order_type,
+                    'quantity': str(Mhf.roundup_value(qty, qty_step)),
+                    'price': str(Mhf.round_value(price, price_step)),
+                    'deduplication': deduplication,
+                    'passive': 0
+                    }
         headers = {'Content-Type': 'application/json', 'User-Agent': user_agent}
         response = requests.post(domain + '/api/rate/order', json=body, headers=headers, cookies=cookies,
                                  verify=verify)
@@ -265,15 +275,25 @@ def send_order(wallet_id, market_id, is_floating_market, order_type, side, qty, 
             logging.warning(f'Exception {e} - Cannot retrieve response as json.  Response is {str(response)}')
 
     else:  # FIXED
-        body = {'marketId': market_id,
-                'walletId': wallet_id,
-                'side': side,
-                'orderType': order_type,
-                'quantity': str(Mhf.roundup_value(qty, qty_step)),
-                'price': str(Mhf.round_value(price, price_step)),
-                'deduplication': f'{wallet_id}{market_id}{time.time()}',
-                'passive': 0
-                }
+        if price is None:
+            body = {'marketId': market_id,
+                    'walletId': wallet_id,
+                    'side': side,
+                    'orderType': order_type,
+                    'quantity': str(Mhf.roundup_value(qty, qty_step)),
+                    'deduplication': deduplication,
+                    'passive': 0
+                    }
+        else:
+            body = {'marketId': market_id,
+                    'walletId': wallet_id,
+                    'side': side,
+                    'orderType': order_type,
+                    'quantity': str(Mhf.roundup_value(qty, qty_step)),
+                    'price': str(Mhf.round_value(price, price_step)),
+                    'deduplication': deduplication,
+                    'passive': 0
+                    }
         headers = {'Content-Type': 'application/json', 'User-Agent': user_agent}
         response = requests.post(domain + '/api/fixed_rate/order', json=body, headers=headers, cookies=cookies,
                                  verify=verify)

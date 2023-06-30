@@ -1,4 +1,5 @@
 from constants import OrderSide as Osi
+from constants import OrderType as Ot
 from constants import RollOverTime as Rot
 from contextlib import suppress
 from datetime import date, datetime, time, timedelta, timezone
@@ -34,6 +35,16 @@ def add_n_years(this_date, n_years):
 
 def check_is_before_rollover_time(curr_utc_datetime):
     return curr_utc_datetime.time() < time(Rot.HOUR, Rot.MINUTE, Rot.SECOND)
+
+
+def convert_order_type_str_to_int(order_type):
+    match order_type:
+        case Ot.LIMIT_STR:
+            return Ot.LIMIT_NUM
+        case Ot.MARKET_STR:
+            return Ot.MARKET_NUM
+        case _:
+            raise Exception(f"Unrecognized order string type ({order_type}) when trying to convert to int")
 
 
 def convert_tenor_to_date(tenor, curr_utc_date_and_time):

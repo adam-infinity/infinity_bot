@@ -245,6 +245,7 @@ def login(address, chain_id, user_agent, domain, verify=False):
 
 def send_order(wallet_id, market_id, is_floating_market, order_type, side, qty, price, qty_step, price_step, user_agent,
                domain, cookies, verify=False, log_prefix=''):
+    deduplication = Mhf.generate_deduplicate(wallet_id, market_id)
     if is_floating_market:  # FLOATING
         if price is None:
             body = {'marketId': market_id,

@@ -110,6 +110,32 @@ def convert_tenor_to_n_days(tenor):
     return n_days_to_maturity
 
 
+def generate_deduplicate(wallet_id, market_id):
+    # Function to generate a random string of length 8
+    def generate_random_string():
+        letters_and_digits = string.ascii_letters + string.digits
+        return ''.join(random.choice(letters_and_digits) for i in range(8))
+
+    # Function to generate a hash of the input string using SHA-256
+    def generate_hash(in_string):
+        sha256 = hashlib.sha256()
+        sha256.update(in_string.encode('utf-8'))
+        return sha256.digest()
+
+    # Get input string from wallet_id & market_id
+    input_string = f'{wallet_id}{market_id}{time.time()}'
+
+    # Generate hash of the input string
+    hash_value = generate_hash(input_string)
+
+    # Convert hash value to a string of length 8 containing only letters and digits
+    random.seed(int.from_bytes(hash_value, byteorder='big'))
+    output_string = generate_random_string()
+
+    # Return the output string
+    return output_string
+    
+
 def get_closest_friday(this_date):
     while this_date.weekday() != 4:
         this_date = this_date + timedelta(days=1)

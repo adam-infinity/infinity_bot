@@ -104,7 +104,7 @@ def convert_tenor_to_date(tenor, curr_utc_date_and_time):
 def convert_tenor_to_n_days(tenor):
     if tenor == 'FLOAT':
         return 0
-    curr_utc_date_and_time = datetime.now(timezone.utc)
+    curr_utc_date_and_time = datetime.datetime.now(timezone.utc)
     tenor_date = convert_tenor_to_date(tenor, curr_utc_date_and_time)
     n_days_to_maturity = tenor_date - curr_utc_date_and_time.date()
     n_days_to_maturity = n_days_to_maturity.days

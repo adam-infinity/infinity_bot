@@ -148,7 +148,7 @@ def get_closest_friday(this_date):
 
 
 def get_first_date_of_month(this_date):
-    return datetime(this_date.year, this_date.month, 1).date()
+    return datetime.datetime(this_date.year, this_date.month, 1).date()
 
 
 def get_last_friday_of_month(this_date):
@@ -156,7 +156,7 @@ def get_last_friday_of_month(this_date):
     last_date_found = False
     while not last_date_found:
         with suppress(Exception):
-            last_friday_of_month = datetime(this_date.year, this_date.month, last_day).date()
+            last_friday_of_month = datetime.datetime(this_date.year, this_date.month, last_day).date()
             last_date_found = True
         last_day = last_day - 1
     while last_friday_of_month.weekday() != 4:  # 4 = Friday

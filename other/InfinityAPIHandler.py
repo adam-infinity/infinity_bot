@@ -97,7 +97,7 @@ def get_all_floating_and_fixed_active_orders_by_wallet(wallet_id, max_num_orders
 
 def get_bid_ask_last_rates(token_id, domain, min_bid_n_ask_size=0, verify=False):
     res_str = '/api/p/rate/markets/bestBidNAsk?tokenId=' + str(token_id) + \
-              '&min_bid_n_ask_size=' + str(min_bid_n_ask_size)
+              '&minBidNAskSize=' + str(min_bid_n_ask_size)
     response = requests.get(domain + res_str, verify=verify)
     return response
 
